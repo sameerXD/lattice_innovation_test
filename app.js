@@ -11,7 +11,7 @@ const utils =require("./utils/utils");
 // all the migration required by the server
 app.get("/migrations", async (req,res)=>{
   let sql ={
-    "Psychiatrist":"CREATE TABLE Psychiatrist(id int AUTO_INCREMENT, first_name VARCHAR(20) NOT NULL, last_name VARCHAR(20) NOT NULL , hospital_name VARCHAR(255) NOT NULL, phone_number varchar(15), password varchar(15) NOT NULL, pincode varchar(15), state varchar(6), PRIMARY KEY(id))",
+    "Psychiatrist":"CREATE TABLE Psychiatrist(id int AUTO_INCREMENT, email VARCHAR(255) UNIQUE, first_name VARCHAR(20) NOT NULL, last_name VARCHAR(20) NOT NULL , hospital_name VARCHAR(255) NOT NULL, phone_number varchar(15), password varchar(15) NOT NULL, pincode varchar(15), state varchar(255), PRIMARY KEY(id))",
     "Hospitals":"CREATE TABLE Hospitals(id int AUTO_INCREMENT, hospital_name VARCHAR(255), PRIMARY KEY(id))",
     "Patients":"CREATE TABLE Patients(id int AUTO_INCREMENT, name VARCHAR(255) NOT NULL , address VARCHAR(255) NOT NULL , email VARCHAR(255) NOT NULL, phone_number varchar(15), password varchar(15) NOT NULL, patient_photo varchar(255) NOT NULL, assigned_to int NOT NULL, PRIMARY KEY(id))",
     "ADD_HOSPITALS":"INSERT INTO Hospitals VALUES (1,'Apollo Hospitals'),(2,'Jawaharlal Nehru Medical College and Hospital'),(3,'Indira Gandhi Institute of Medical Sciences (IGIMS'),(4,'AIIMS - All India Institute Of Medical Science')"
